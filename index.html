@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+    <script async type="text/javascript" src="js/script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL_K_Uubq90jle1LEf9us_V1oqUI2u-Vc&callback=initialize"onerror="mapFail()"></script>
+    <title>Neighborhood Map- Dehradun</title>
+    <link rel="stylesheet" href="css/styles.css">
+   
+</head>
+
+<body>
+
+    <div id="map-main"></div>
+   
+        <div id="search-nav">
+
+
+            <div class="searchNav">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <input id="search" placeholder="Search Location" type="input" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'" autocomplete="off"></input>
+
+                    <br><br>
+
+                    <ul data-bind="template: {name: 'marker', foreach:markers}">
+                    </ul>
+                    <script type="text/html" id="marker">
+                        <div data-bind="visible: visible">
+                            <a href="#" data-bind="attr: {id: id}">
+                                <li>
+                                    <strong data-bind="text: name"></strong>
+                                </li>
+                                <br>
+                            </a>
+                        </div>
+                    </script>
+
+                 </div>
+
+                <b><span class="searchIcon" onclick="openNav()">&#128269;</span></b>
+
+            </div>
+
+        </div>
+  
+    
+    <button id="reloadM">Reload Map</button>
+
+</body>
+
+</html>
